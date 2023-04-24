@@ -39,7 +39,7 @@ public class Partido {
         }
     }
 
-    public Partido(){}
+    public Partido(String equipo1, String equipo2){}
 
 
     public Equipo getEquipo1() {

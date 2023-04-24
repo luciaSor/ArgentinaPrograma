@@ -13,7 +13,7 @@ public class Apuesta {
 
     private Boolean empate;
 
-    public Apuesta(){}
+    public Apuesta(Partido partido1, Equipo argentina){}
 
     public Apuesta(Equipo equipo1, Equipo equipo2, Boolean ganaEquipo1, Boolean ganaEquipo2, Boolean empate) {
         this.equipo1 = equipo1;

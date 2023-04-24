@@ -7,7 +7,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Utils {
@@ -54,7 +53,7 @@ public static String csvToString(String path){
       for (int i = 1; i < formated.length; i++) {
           String[] reFormated = formated[i].split(",");
 
-          partidos.add(new Partido(new Equipo(reFormated[1]),new Equipo(reFormated[4]),Integer.valueOf(reFormated[2]),Integer.valueOf(reFormated[3])));
+          partidos.add(new Partido(new Equipo("Argentina", reFormated[1]),new Equipo("Argentina", reFormated[4]),Integer.valueOf(reFormated[2]),Integer.valueOf(reFormated[3])));
 
       }
 
@@ -76,7 +75,7 @@ public static String csvToString(String path){
 
       for (int i = 1; i < formated.length; i++) {
           String[] reFormated = formated[i].split(",");
-         Apuesta apuesta = new Apuesta(new Equipo(reFormated[1]),new Equipo(reFormated[5]),siHayX(reFormated[2]),siHayX(reFormated[4]),siHayX(reFormated[3]));
+         Apuesta apuesta = new Apuesta(new Equipo("Argentina", reFormated[1]),new Equipo("Argentina", reFormated[5]),siHayX(reFormated[2]),siHayX(reFormated[4]),siHayX(reFormated[3]));
          apostadores.add(new Persona(reFormated[0],apuesta));
 
       }
@@ -131,7 +130,7 @@ public static String csvToString(String path){
                     if(apuesta.getGanaEquipo1().equals(patido.getGanoEquipo1())  && apuesta.getGanaEquipo2().equals(patido.getGanoEquipo2()) && apuesta.getEmpate().equals(patido.getEmpate())){
                         persona1.setPuntos(1);
                         persona1.setApuestas(persona.getApuestas());
-                    }
+                    }else {persona1.setPuntos(0);persona1.setApuestas(persona.getApuestas());}
                 }
             }
 
