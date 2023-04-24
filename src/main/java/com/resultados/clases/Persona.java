@@ -70,11 +70,11 @@ public class Persona {
         if (this == o) return true;
         if (!(o instanceof Persona)) return false;
         Persona persona = (Persona) o;
-        return Objects.equals(nombre, persona.nombre);
+        return Objects.equals(nombre, persona.nombre)  && Objects.equals(apuestas, persona.apuestas);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nombre);
+        return Objects.hash(nombre, puntos, apuestas);
     }
 }

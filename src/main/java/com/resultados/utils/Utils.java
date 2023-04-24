@@ -96,7 +96,7 @@ public static String csvToString(String path){
             personas1.addAll(apostantes);
         }else {
             for (Persona persona:personas1){
-                if (persona.equals(apostante)){
+                if (persona.getNombre().equals(apostante.getNombre())){
                     Set<Apuesta>apuestas = new HashSet<>();
                     apuestas.addAll(apostante.getApuestas());
                     apuestas.addAll(persona.getApuestas());
