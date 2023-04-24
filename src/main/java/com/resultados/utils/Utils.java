@@ -87,7 +87,7 @@ public static String csvToString(String path){
       return apostadores;
   }
 
-  public static Set<Persona> verificarApuestas(Set<Persona> apostantes){
+  /*public static Set<Persona> verificarApuestas(Set<Persona> apostantes){
     Set<Persona> personas = new HashSet<>();
     Set<Persona> personas1 = new HashSet<>();
 
@@ -119,7 +119,38 @@ public static String csvToString(String path){
 
 
     return personas;
-  }
+  }*/
+
+
+    public static Persona contarPuntos(Set<Partido> partidos , Persona persona){
+        Persona persona1 = new Persona(persona.getNombre());
+
+        for (Partido patido :partidos){
+            for (Apuesta apuesta : persona.getApuestas()){
+                if (apuesta.getEquipo1().getNombre().equals(patido.getEquipo1().getNombre())){
+                    if(apuesta.getGanaEquipo1().equals(patido.getGanoEquipo1())  && apuesta.getGanaEquipo2().equals(patido.getGanoEquipo2()) && apuesta.getEmpate().equals(patido.getEmpate())){
+                        persona1.setPuntos(1);
+                        persona1.setApuestas(persona.getApuestas());
+                    }
+                }
+            }
+
+        }
+        return persona1;
+    }
+
+
+    public static void suma(Set<Partido> partidos, Set<Persona> personas){
+        Set<Persona> personas1 = new HashSet<>();
+        personas.stream().forEach(persona -> {
+            personas1.add(contarPuntos(partidos,persona));
+        });
+
+
+
+         personas1.stream().sorted(Comparator.comparing(Persona::getNombre)).forEach(System.out::println);
+    }
+
 
 
 

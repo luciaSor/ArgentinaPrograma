@@ -12,10 +12,9 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(String nombre, Integer puntos, Set<Apuesta> apuestas) {
+    public Persona(String nombre, Integer puntos) {
         this.nombre = nombre;
         this.puntos = puntos;
-        this.apuestas = apuestas;
     }
 
     public Persona(String nombre, Apuesta apuesta) {
@@ -61,20 +60,9 @@ public class Persona {
     @Override
     public String toString() {
         return "nombre: " + nombre + " "+
-                "tiene: " + puntos +" "+
+                "tiene: " + puntos +"  puntos "+ " "+
                 "apuestas" + apuestas;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Persona)) return false;
-        Persona persona = (Persona) o;
-        return Objects.equals(nombre, persona.nombre)  && Objects.equals(apuestas, persona.apuestas);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(nombre, puntos, apuestas);
-    }
 }

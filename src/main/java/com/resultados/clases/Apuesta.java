@@ -72,4 +72,6 @@ public class Apuesta {
                 ", ganaEquipo2=" + ganaEquipo2 +
                 ", empate=" + empate;
     }
+
+
 }

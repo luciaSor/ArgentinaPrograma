@@ -23,10 +23,10 @@ public class Main {
         Utils.getPartidos(repositorioPartidos).stream().forEach(System.out::println);
 
         System.out.println("Las apuestas fueron lassiguientes");
-
-        Utils.verificarApuestas(Utils.getPronosticos(repositorioPronosticos)).stream().forEach(System.out::println);
-
+        Utils.getPronosticos(repositorioPronosticos).stream().forEach(System.out::println);
         System.out.println("Puntajes obtenidos");
+        Utils.suma(Utils.getPartidos(repositorioPartidos),Utils.getPronosticos(repositorioPronosticos));
+
 
 
 
